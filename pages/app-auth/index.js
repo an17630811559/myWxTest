@@ -1,12 +1,14 @@
 const util = require('../../utils/util.js');
 const api = require('../../config/api.js');
 const user = require('../../services/user.js');
+const appconfig=require('../../config/app-config.js');
 //获取应用实例
 const app = getApp()
 
 Page({
     data: {
-        
+        appName:appconfig.AppName,
+        appInfo:appconfig.AppInfo
     },
     onLoad: function (options) {
         

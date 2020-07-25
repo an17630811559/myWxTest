@@ -1,7 +1,7 @@
 var util = require('../../../utils/util.js');
 var api = require('../../../config/api.js');
 var user = require('../../../services/user.js');
-
+const appconfig=require('../../../config/app-config.js');
 // TODO 订单显示数量在图标上
 
 const app = getApp()
@@ -12,6 +12,8 @@ Page({
         hasUserInfo: false,
         canIUse: wx.canIUse('button.open-type.getUserInfo'),
         status: {},
+        AppInfo:appconfig.AppInfo,
+        AppName: appconfig.AppName,
     },
     goProfile: function (e) {
         let res = util.loginNow();

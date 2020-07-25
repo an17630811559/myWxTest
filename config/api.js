@@ -1,5 +1,6 @@
 // const ApiRootUrl = 'http://localhost:8360/api/';
-const ApiRootUrl = 'https://www.hiolabs.com/api/';
+//const ApiRootUrl = 'https://www.hiolabs.com/api/';
+const ApiRootUrl = 'http://localhost:8080/';
 
 module.exports = {
     // 登录
@@ -48,7 +49,7 @@ module.exports = {
     SearchIndex: ApiRootUrl + 'search/index', //搜索页面数据
     SearchHelper: ApiRootUrl + 'search/helper', //搜索帮助
     SearchClearHistory: ApiRootUrl + 'search/clearHistory', //搜索帮助
-    ShowSettings: ApiRootUrl + 'settings/showSettings',
+    ShowSettings: ApiRootUrl + 'setting/showSettings',
     SaveSettings: ApiRootUrl + 'settings/save',
     SettingsDetail: ApiRootUrl + 'settings/userDetail',
     GetBase64: ApiRootUrl + 'qrcode/getBase64', //获取商品详情二维码

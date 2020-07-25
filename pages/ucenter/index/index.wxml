@@ -104,9 +104,9 @@
     </view>
     <view class="company">
         <view class="c-wrap">
-            <view class="text">海风小店</view>
+            <view class="text">{{AppName}}</view>
             <view class="line"></view>
         </view>
-        <view class="tip">开源微信小程序商城</view>
+        <view class="tip">{{AppInfo}}</view>
     </view>
 </view>

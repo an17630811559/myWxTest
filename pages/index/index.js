@@ -38,11 +38,12 @@ Page({
             url: '/pages/category/index',
         })
     },
+    //获取搜索框商品数量
     getCatalog: function () {
         let that = this;
         util.request(api.GoodsCount).then(function (res) {
             that.setData({
-                goodsCount: res.data.goodsCount
+                goodsCount: res.data
             });
         });
     },
@@ -62,20 +63,23 @@ Page({
             url: '/pages/goods-details/index',
         });
     },
+    //获取商品信息
     getIndexData: function () {
         let that = this;
         util.request(api.IndexUrl).then(function (res) {
-            if (res.errno === 0) {
+            console.log(res)
+            if (res.code == 200) {
                 that.setData({
-                    floorGoods: res.data.categoryList,
+                    floorGoods: res.data.floorGoods,
                     banner: res.data.banner,
-                    channel: res.data.channel,
-                    notice: res.data.notice,
+                    channel: res.data.floorGoods,
+                    notice: res.data.msg,
                     loading: 1,
                 });
             }
         });
     },
+    //页面加载完成时
     onLoad: function (options) {
         let systemInfo = wx.getStorageSync('systemInfo');
         var scene = decodeURIComponent(options.scene);
@@ -100,6 +104,8 @@ Page({
         });
         wx.removeStorageSync('categoryId');
     },
+    //获取购物车数量 
+    //TODO 在本地完成购物车
     getCartNum: function () {
         util.request(api.CartGoodsCount).then(function (res) {
             if (res.errno === 0) {
@@ -118,14 +124,16 @@ Page({
             }
         });
     },
+    //页面加载完第二个调用的方法 获取数据库中的设置
     getChannelShowInfo: function (e) {
         let that = this;
         util.request(api.ShowSettings).then(function (res) {
-            if (res.errno === 0) {
-                let show_channel = res.data.channel;
-                let show_banner = res.data.banner;
-                let show_notice = res.data.notice;
-                let index_banner_img = res.data.index_banner_img;
+            console.log(res)
+            if (res.code == 200) {
+                let show_channel = res.data.showChannel;
+                let show_banner = res.data.showBanner;
+                let show_notice = res.data.showNotice;
+                let index_banner_img = res.data.indexBannerImg;
                 that.setData({
                     show_channel: show_channel,
                     show_banner: show_banner,
@@ -135,6 +143,7 @@ Page({
             }
         });
     },
+    //下拉事件
     onPullDownRefresh: function () {
         wx.showNavigationBarLoading()
         this.getIndexData();

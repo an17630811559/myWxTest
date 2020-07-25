@@ -19,9 +19,6 @@
 用户名：hiolabs  
 密码：hiolabs  
 
-<a target="_blank" href="https://www.aliyun.com/minisite/goods?userCode=zm04niet"><img width="1400" src="http://git.hiolabs.com/aliyun.jpg"/></a>
-阿里云主机优惠<a target="_blank" href="https://www.aliyun.com/minisite/goods?userCode=zm04niet">立即去看看</a>
-
 ### 项目截图
 
 <img width="1400" src="http://git.hiolabs.com/github/all1.jpg"/>
@@ -79,16 +76,10 @@ A 增加发货时的订阅消息
 └─utils
 ```
 ### 本地开发
-
-请在https://mp.weixin.qq.com/ 注册你的小程序，得到appid和secret，微信开发者工具中设置appid。  
-在hiolabs-server的config.js中设置好appid和secret。  
-
 - 项目地址  
 微信小程序：https://github.com/iamdarcy/hioshop-miniprogram  
 后台管理：https://github.com/iamdarcy/hioshop-admin  
 服务端： https://github.com/iamdarcy/hioshop-server  
 
-- 本项目会持续更新和维护，喜欢别忘了 Star，有问题可通过微信、QQ群联系我，谢谢您的关注。
-<img width="1200" src="http://git.hiolabs.com/github/contact.jpg"/>
 
 

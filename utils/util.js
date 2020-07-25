@@ -74,7 +74,7 @@ function request(url, data = {}, method = "GET") {
             method: method,
             header: {
                 'Content-Type': 'application/json',
-                'X-Nideshop-Token': wx.getStorageSync('token')
+                'appkey': '1852eccf008d4c82bc89bcd7ebecf252'
             },
             success: function(res) {
                 if (res.statusCode == 200) {
