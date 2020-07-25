@@ -24,7 +24,7 @@ Page({
         let that = this;
         util.request(api.ShowSettings).then(function (res) {
             if (res.errno === 0) {
-                let index_banner_img = res.data.index_banner_img;
+                let index_banner_img = res.data.indexBannerImg;
                 that.setData({
                     index_banner_img: index_banner_img
                 });
@@ -37,17 +37,20 @@ Page({
         wx.hideNavigationBarLoading() //完成停止加载
         wx.stopPullDownRefresh() //停止下拉刷新
     },
+    //页面加载完成最后执行的方法  已完成
     getCatalog: function() {
         //CatalogList
         let that = this;
+        //获取全部分类
         util.request(api.CatalogList).then(function(res) {
             that.setData({
-                navList: res.data.categoryList,
+                navList: res.data,
             });
         });
+        //获取全部商品数量
         util.request(api.GoodsCount).then(function(res) {
             that.setData({
-                goodsCount: res.data.goodsCount
+                goodsCount: res.data
             });
         });
     },
@@ -61,6 +64,7 @@ Page({
             });
         });
     },
+    //默认请求全部
     getCurrentList: function(id) {
         let that = this;
         util.request(api.GetCurrentList, {
@@ -68,7 +72,7 @@ Page({
             page: that.data.allPage,
             id: id
         }, 'POST').then(function(res) {
-            if (res.errno === 0) {
+            if (res.code == 200) {
                 let count = res.data.count;
                 that.setData({
                     allCount: count,
@@ -86,14 +90,15 @@ Page({
             }
         });
     },
+    //进入此页面先执行的方法
     onShow: function() {
         this.getChannelShowInfo();
         let id = this.data.nowId;
         let nowId = wx.getStorageSync('categoryId');
+        //初始化时id为0 nowID为空
         if(id == 0 && nowId === 0){
             return false
-        }
-        else if (nowId == 0 && nowId === '') {
+        }else if (nowId == 0 && nowId === '') {
             this.setData({
                 list: [],
                 allPage: 1,

@@ -2,14 +2,14 @@
     <view class="search">
         <navigator url="/pages/search/search" class="input">
             <image class="icon" src="/images/icon/search.png"></image>
-            <text class="txt">搜索, 共{{goodsCount}}款好味</text>
+            <text class="txt">搜索, 共{{goodsCount}}款好物</text>
         </navigator>
     </view>
     <view class="catalog">
         <!-- 循环类别 -->
         <scroll-view class="nav" scroll-y="true">
             <view class="item {{ nowId == 0 ?'active' : ''}}" bindtap="switchCate" data-id="0">全部</view>
-            <view class="item {{ nowId == item.id?'active' : ''}}" wx:for="{{navList}}" wx:key="id" data-id="{{item.id}}" bindtap="switchCate">{{item.name}}</view>
+            <view class="item {{ nowId == item.id?'active' : ''}}" wx:for="{{navList}}" wx:key="id" data-id="{{item.id}}" bindtap="switchCate">{{item.productClassiName}}</view>
         </scroll-view>
         <!-- 每条列表下的商品 -->
         <scroll-view class="cate" scroll-y="true" bindscrolltolower="onBottom">
